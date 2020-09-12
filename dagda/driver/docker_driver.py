@@ -84,9 +84,9 @@ class DockerDriver:
                 raise ex
 
     # Creates container and return the container id
-    def create_container(self, image_name, entrypoint=None, volumes=None, host_config=None):
+    def create_container(self, image_name, entrypoint=None, volumes=None, host_config=None, cmd=None):
         container = self.cli.create_container(image=image_name, entrypoint=entrypoint, volumes=volumes,
-                                              host_config=host_config)
+                                              host_config=host_config, command=cmd)
         return container.get('Id')
 
     # Docker pull
